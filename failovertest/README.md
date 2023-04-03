@@ -1,5 +1,7 @@
 A note on  redis client library testing to simulate network failure. Just to formalize a brain dump.
 
+#### Draft need review
+
 All tests were done using Lettuce [sample client](./testlettuce).
 
 ## Testing 
