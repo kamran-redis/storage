@@ -6,7 +6,7 @@ All tests were done using Lettuce [sample client](./testlettuce).
 
 ## Testing 
 
-| Method                                                       | Comments                                                     | Usage              |
+| Method                                                       | Comments                                                     | Suitable for Realistic Redis Failover Testing              |
 | :----------------------------------------------------------- | :----------------------------------------------------------- | :------------------ |
 | Halt machine using [halt](https://man7.org/linux/man-pages/man8/halt.8.html) --halt -f command | Halt a machine <br> On Ubuntu the `halt --halt`  TCP stack  sends a `FIN` packet hence is similar to kill process. <br>  [test_halt_machine.pcap](./test_halt_machine.pcap) ![test_halt_machine_pcap](./test_halt_machine_pcap.png)<br><br> Where as ` halt --halt -f`  does **not** send a  FIN packet and is appropriate for testing. <br>  [test_halt_force.pcap](./test_halt_force.pcap) ![test_halt_force_pcap](./test_halt_force_pcap.png) | use halt --halt -f |
 | Kill Redis process (kill -9)                                 | OS will clean resources and  underlying TCP stack   will send  FIN to close connection. Hence does not mimic hard failover<br>  [test_kill_redis_process.pcap](./test_kill_redis_process.pcap) ![test_kill_redis_process_pcap](./test_kill_redis_process_pcap.png) | No                 |
