@@ -13,8 +13,8 @@ if __name__ == '__main__':
         try:
             for line in file:
                 j = json.loads(line)
-                redis.set(j["_id"], line)
-                #redis.json().set(j["_id"], '$', j)
+                #redis.set(j["_id"], line)
+                redis.json().set(j["_id"], '$', j)
         except Exception as e:
             print(e)
     print(redis.info("Keyspace"))
